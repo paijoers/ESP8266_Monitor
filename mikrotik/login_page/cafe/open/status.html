@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+    $(if refresh-timeout)
+    <meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+    $(endif)
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <title>Hotspot » Status</title>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="apple-touch-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+    $(if advert-pending == 'yes')
+    var popup = '';
+    function focusAdvert() {
+    if (window.focus) popup.focus();
+    }
+    function openAdvert() {
+    popup = open('$(link-advert)', 'hotspot_advert', '');
+    setTimeout("focusAdvert()", 1000);
+    }
+    $(endif)
+
+    function openLogout() {
+    if (window.name != 'hotspot_status') return true;
+        open('https://$(hostname)/logout', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+    window.close();
+    return false;
+    }
+   </script>
+</head>
+<body class="lite" $(if advert-pending=='yes' ) onLoad="openAdvert()" $(endif)>
+    <div class="ie-fixMinHeight">
+        <div class="main">
+            <div class="wrap">
+                <img class="logo" alt="#" src="img/logo.png" />
+                <noscript><p class="noscript icon-attention-circled">Browser tidak merespon! Aktifkan JavaScript browser Anda kemudian coba lagi.</p></noscript>
+                <h1 class="connected icon-globe">CONNECTED</h1>
+                <p>☕ Have a Joyful Day ☕</p>
+                <br>
+                <p>Warkop tutup pukul <span id="time">03:00</span> WIB</p>
+                 $(if login-by-mac != 'yes')
+                 <a href="#disconnect" class="btn-logout">DISCONNECT</a>
+                 $(endif)
+                 <p class="info bt icon-location-1">My Cafe<br/>Jl. Raya Mak Klunting - Idola<br/>Konoha</p>
+               <div class="modal fade" id="disconnect">
+                   <div class="modal-container">
+                     <div class="modal-content">
+                          <h1>Anda yakin ingin disconnect?</h1>
+                          <p>Koneksi internet Anda akan terputus.</p>
+                     </div>
+                       <form name="logout" action="http://$(hostname)/logout" onSubmit="return openLogout()">
+                          <input type="hidden" name="erase-cookie" value="on">
+                          <label>
+                            <input class="btn-cf" type="submit" value="YA">
+                          </label>
+                          <label>
+                            <a href="#cancel" class="btn-close">BATAL</a>
+                          </label>
+                      </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'closed.txt', true);
+    xhr.onreadystatechange = function() {
+    if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+        var content = xhr.responseText;
+        content = content.substring(0, 5);
+        document.getElementById('time').innerHTML = content;
+    }
+    }
+    xhr.send();
+</script>
+</body>
+</html>
