@@ -18,7 +18,7 @@ add name="open" interval=1d start-time="06:00:00" on-event={
 /file set cafe/open/closed.txt contents=[/system scheduler get closed start-time];
 }
 
-add name="ESP Monitor 2" interval=10s on-event={
+add name="ESP Monitor" interval=10s on-event={
 # mencari otomatis ip address ESP8266 dari dhcp lease
 :local hostname "ESP Monitor";
 :local espIP;
