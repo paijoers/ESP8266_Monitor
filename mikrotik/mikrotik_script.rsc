@@ -1,4 +1,5 @@
-# silahkan edit sesuaikan dengan dengan settingan mikrotik masing-masing 
+# Tidak kompatibel untuk RouterOS 7
+# Silahkan edit sesuaikan dengan dengan settingan mikrotik masing-masing 
 
 /system scheduler
 add name="closed" interval=1d start-time="03:00:00" on-event={
