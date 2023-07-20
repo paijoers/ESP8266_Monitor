@@ -1,18 +1,5 @@
 /*------------------------------------------------------------------------------
 
-Program ini merupakan perangkat lunak bebas: Anda dapat mendistribusikannya dan/atau memodifikasinya
-sesuai dengan ketentuan GNU General Public License yang diterbitkan oleh
-Free Software Foundation, versi 3 dari Lisensi, atau
-(pada opsi Anda) versi berikutnya.
-
-Program ini didistribusikan dalam harapan bahwa ini akan bermanfaat,
-tetapi TANPA GARANSI apa pun; tanpa bahkan jaminan tersirat tentang
-DAGANGAN atau KESESUAIAN UNTUK TUJUAN TERTENTU. Lihat
-GNU General Public License untuk lebih banyak detail.
-
-Anda seharusnya menerima salinan dari GNU General Public License
-bersama dengan program ini. Jika tidak, lihat <http://www.gnu.org/licenses/>.
-
 ESP MONITOR
 Version : 1.0
 Author  : NyessId
