@@ -24,7 +24,7 @@ const int maxPingAttempts = 5;
 
 const char* ssid          = "";
 const char* ap_ssid       = softwareName;
-const char* password      = "@nys.pjr";     // password saat mode AP
+const char* password      = "espmon123";     // password saat mode AP
 
 unsigned long
 statusMillis  = 0,
