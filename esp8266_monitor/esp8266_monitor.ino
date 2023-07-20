@@ -17,7 +17,7 @@ Author  : NyessId
 #define softwareVersion "V 1.0"
 
 ESP8266WebServer server;
-LiquidCrystal_I2C lcd(0x27,20,4); 
+LiquidCrystal_I2C lcd(0x27,16,2); 
 
 uint8_t pin_led           = 2;
 const int maxPingAttempts = 5;
@@ -431,7 +431,7 @@ void handleSettingsUpdate(){
   DynamicJsonDocument doc(512);
   DeserializationError error = deserializeJson(doc,data);
   if(!error){
-    if(doc.containsKey("data1") && doc.containsKey("data2")&& doc.containsKey("data3")) {
+    if(doc.containsKey("data1") && doc.containsKey("data2") && doc.containsKey("data3") && doc.containsKey("data4")) {
        String data1 = doc["data1"];         
        String data2 = doc["data2"]; 
        String data3 = doc["data3"];
