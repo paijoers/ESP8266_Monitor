@@ -27,6 +27,7 @@ const char* ap_ssid       = softwareName;
 const char* password      = "espmon123";     // password saat mode AP
 
 unsigned long
+startTime     = 0,
 statusMillis  = 0,
 connMillis    = 0,
 pageMillis    = 0;
@@ -380,7 +381,7 @@ void wifiConnect(){
         _pass = doc["password"];
         WiFi.mode(WIFI_STA);
         WiFi.begin(_ssid, _pass);
-        unsigned long startTime = millis();
+        startTime = millis();
         lcd.clear();
         delay(300);
         lcd.setCursor(0,0);
