@@ -1,4 +1,4 @@
-# Tidak kompatibel untuk RouterOS 7
+# RouterOS 6.48.7 long term
 # Silahkan edit sesuaikan dengan dengan settingan mikrotik masing-masing 
 
 /system scheduler
