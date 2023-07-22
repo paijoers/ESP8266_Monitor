@@ -123,7 +123,7 @@ h3 {
 }
 p,span {
     color: #fff;
-    fon-size: 12px
+    font-size: 12px
 }
 
 * {
@@ -212,7 +212,7 @@ input[type=password],input[type=text],select {
     color: #555;
     outline: 0;
     text-decoration: none;
-    border: 1px solid background-color:rgba(255, 255, 255, .8);
+    border: 1px solid #ddd;
     height: 30px;
     padding: 3px 20px 3px 20px;
     margin-bottom: 20px;
@@ -275,7 +275,7 @@ button:focus,button::hover {
               </select>
               <button id="savebtn" type="button" onclick="saveFunction()">SIMPAN</button>
             </div>
-            <div class="footer">ESP8266 Monitor Hotspot MikroTik by <a href="https://www.tiktok.com/@nys.pjr" target="_blank">NyessId</a></>
+            <div class="footer">ESP8266 Monitor Hotspot MikroTik by <a href="https://www.tiktok.com/@nys.pjr" target="_blank">NyessId</a></div>
            </div>
         </div>
       </div>
