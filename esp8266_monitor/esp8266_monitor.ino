@@ -72,6 +72,9 @@ label
     border: 0;
     font-family: sans-serif, Arial
 }
+label {
+    margin-bottom: 2px;
+}
 body,html {
     min-height: 100%;
     overflow-x: hidden
@@ -123,7 +126,7 @@ h3 {
 }
 p,span {
     color: #fff;
-    font-size: 12px
+    font-size: 13px
 }
 
 * {
@@ -146,12 +149,12 @@ p,span {
 .footer {
     margin-top: 15px;
     color: #fff;
-    font-size:12px !important;
+    font-size:13px !important;
     text-align: center
 }
 
 .footer a{
-    font-size:12px !important;
+    font-size:13px !important;
     font-weight: bold;
     text-decoration: none
 }
@@ -195,7 +198,6 @@ form {
     text-align: center;
     border: 0 !important
 }
-
 input {
     outline: 0;
     -webkit-appearance: none;
@@ -253,12 +255,13 @@ button:focus,button::hover {
 }
   </style>
 </head>
-<body>
+<body onload="handleEncryptionMode()">
   <form>
       <div class="ie-fixMinHeight">
         <div class="main">
           <div class="wrap animated fadeIn">
-            <h1 class="center-text">ESP Monitor</h1>
+            <h1 class="center-text">ESP MONITOR</h1>
+            <p class="center-text">Silahkan sambungkan ke ssid server</p>
             <div class="bordered">
               <h3 id="wifiStatus"></h3>
               <h3 id="connectedSSID"></h3>
@@ -270,12 +273,12 @@ button:focus,button::hover {
               </div>
               <label for="encryptionMode"></label>
               <select id="encryptionMode" onchange="handleEncryptionMode()">
-                 <option value="wpa" selected>Mode Enkripsi: WPA</option>
-                 <option value="open">Mode Enkripsi: Open</option>
+                 <option value="open" ${encryptionMode === "open" ? "selected" : ""}>Mode Enkripsi: Open</option>
+                 <option value="wpa" ${encryptionMode === "wpa" ? "selected" : ""}>Mode Enkripsi: WPA/WPA2</option>
               </select>
               <button id="savebtn" type="button" onclick="saveFunction()">SIMPAN</button>
             </div>
-            <div class="footer">ESP8266 Monitor Hotspot MikroTik by <a href="https://www.tiktok.com/@nys.pjr" target="_blank">NyessId</a></div>
+            <div class="footer">ESP Monitor by <a href="https://www.tiktok.com/@nys.pjr" target="_blank">NyessId</a></div>
            </div>
         </div>
       </div>
@@ -286,10 +289,10 @@ button:focus,button::hover {
       var encryptionMode = document.getElementById("encryptionMode").value;
       var passwordField = document.getElementById("passwordField");
       
-      if (encryptionMode === "open") {
-        passwordField.style.display = "none";
-      } else {
+      if(encryptionMode === "wpa") {
         passwordField.style.display = "block";
+      } else {
+        passwordField.style.display = "none";
       }
     }
     
@@ -331,12 +334,12 @@ button:focus,button::hover {
       var password = document.getElementById("password").value;
       var data = {ssid:ssid, password:password};
       var encryptionMode = document.getElementById("encryptionMode").value;
-      if (ssid.trim() === "") {
+      if(ssid.trim() === "") {
         alert("Input SSID!");
         return;
       }
 
-      if (encryptionMode === "wpa" && password.trim() === "") {
+      if(encryptionMode === "wpa" && password.trim() === "") {
         alert("Input Password!");
         return;
       }
@@ -344,8 +347,8 @@ button:focus,button::hover {
       var xhr = new XMLHttpRequest();
       xhr.open("POST", "/update", true);
       xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
-          if (xhr.status === 200) {
+        if(xhr.readyState === 4) {
+          if(xhr.status === 200) {
             alert("Data berhasil dikirim.");
             updateWiFiStatus();
           } else {
