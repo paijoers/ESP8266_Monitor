@@ -5,7 +5,7 @@ Version : 1.0
 Author  : NyessId
 
 ------------------------------------------------------------------------------*/
-#include <SPI.h>
+// #include <SPI.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 #include <ESP8266WiFi.h>
