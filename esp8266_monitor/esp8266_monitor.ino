@@ -430,7 +430,7 @@ void wifiConnect(){
 }
 
 
-void handleSettingsUpdate(){
+void dataUpdate(){
   String data = server.arg("plain");
   DynamicJsonDocument doc(512);
   DeserializationError error = deserializeJson(doc,data);
@@ -532,7 +532,7 @@ void setup(){
   server.on("/",[](){server.send_P(200,"text/html", webpage);});
   server.on("/wifi-status", handleWiFiStatus);
   server.on("/connected-ssid", handleConnectedSSID);
-  server.on("/update", HTTP_POST, handleSettingsUpdate);
+  server.on("/update", HTTP_POST, dataUpdate);
   if (MDNS.begin("esp8266")) {
     Serial.println("MDNS responder started");
   }
