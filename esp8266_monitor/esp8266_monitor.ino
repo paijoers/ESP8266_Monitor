@@ -445,7 +445,7 @@ void handleSettingsUpdate(){
        s_data3 = data3;
        s_data4 = data4;
        server.send(200, "application/json", "{\"status\" : \"ok\"}");
-    } else {
+    } else if(doc.containsKey("ssid") && doc.containsKey("password")){
        File configFile = SPIFFS.open("/config.json", "w");
        serializeJson(doc, configFile);  
        configFile.close();
