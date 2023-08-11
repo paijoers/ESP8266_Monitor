@@ -21,7 +21,6 @@ ESP8266WebServer server;
 LiquidCrystal_I2C lcd(0x27,16,2); 
 
 uint8_t pin_led           = 2;
-const int maxPingAttempts = 5;
 
 const char* ssid          = "";
 const char* ap_ssid       = softwareName;
