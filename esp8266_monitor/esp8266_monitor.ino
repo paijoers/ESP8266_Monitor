@@ -436,14 +436,10 @@ void dataUpdate(){
   DeserializationError error = deserializeJson(doc,data);
   if(!error){
     if(doc.containsKey("data1") && doc.containsKey("data2") && doc.containsKey("data3") && doc.containsKey("data4")) {
-       String data1 = doc["data1"];         
-       String data2 = doc["data2"]; 
-       String data3 = doc["data3"];
-       String data4 = doc["data4"];
-       s_data1 = data1;
-       s_data2 = data2;
-       s_data3 = data3;
-       s_data4 = data4;
+       s_data1 = (String)doc["data1"];
+       s_data2 = (String)doc["data2"];
+       s_data3 = (String)doc["data3"];
+       s_data4 = (String)doc["data4"];
        server.send(200, "application/json", "{\"status\" : \"ok\"}");
     } else if(doc.containsKey("ssid") && doc.containsKey("password")){
        File configFile = SPIFFS.open("/config.json", "w");
