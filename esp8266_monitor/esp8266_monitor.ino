@@ -283,7 +283,6 @@ button:focus,button::hover {
         </div>
       </div>
   </form>
-</body>
 <script>
     function handleEncryptionMode() {
       var encryptionMode = document.getElementById("encryptionMode").value;
@@ -362,6 +361,7 @@ button:focus,button::hover {
     updateWiFiStatus();
     setInterval(updateWiFiStatus, 5000);
   </script>
+</body>
 </html>
 )=====";
 
